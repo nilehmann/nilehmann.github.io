@@ -10,6 +10,7 @@ declare module '@citation-js/core' {
 		title?: string;
 		author?: Author[];
 		issue?: string;
+		abstract?: string;
 		issued?: { 'date-parts': number[][] };
 		'container-title'?: string;
 	}
