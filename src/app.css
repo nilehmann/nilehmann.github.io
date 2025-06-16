@@ -1,8 +1,22 @@
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background-color: rgb(30, 30, 30);
+		--text-color: rgb(200, 195, 188);
+		--blue-fg: rgb(107, 172, 209);
+	}
+}
+@media (prefers-color-scheme: light) {
+	:root {
+		--background-color: white;
+		--text-color: #333;
+		--blue-fg: #30759c;
+	}
+}
+
 :root {
-	--link-color: #316582;
 	--header-bg-color: #30759c;
-	--blue-fg: #30759c;
 	--max-width: 1000px;
+	--link-color: var(--blue-fg);
 }
 
 @font-face {
@@ -168,7 +182,8 @@ body {
 	margin: 0;
 	padding: 0;
 	line-height: 1.6;
-	color: #333;
+	color: var(--text-color);
+	background-color: var(--background-color);
 }
 
 h2 {
