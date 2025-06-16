@@ -18,8 +18,28 @@
 		<section id="about">
 			<h2>About Me</h2>
 			<p>
-				My research focuses on scalable algorithms for big data analysis, with a particular emphasis
-				on graph theory, distributed systems, and machine learning on resource-constrained devices.
+				I'm a final year PhD student at the University of California, San Diego, advised by Ranjit
+				Jhala. I'm interested in <emph>programming languages</emph> and
+				<emph>program verification</emph>. My goal is to make formal verification part of the
+				day-to-day development process by integrating formal methods into programming languages. I'm
+				particularly interested in using these techniques to secure the low-level systems that power
+				critical infrastructure. Check out my tool
+				<a href="https://github.com/flux-rs/flux" target="_blank">Flux</a>, a refinement type
+				checker for Rust that lets specify a range of correctness properties and have them be
+				verified at compile time.
+			</p>
+			<p>
+				Outside of research, I'm a decent musician. You can check my college band Modesto Medio in
+				<a
+					href="https://open.spotify.com/artist/4z8hrlYC3dtLNbLb8dLiUv?si=dXBh95WQRLWe1vJvmaOa2w"
+					target="_blank">Spotify</a
+				>. Here's also a
+				<a
+					href="https://www.youtube.com/watch?v=6EqmrloOkiQ&list=PLrSWf-X1MTC4ZLZm66YhxnPLKWHg-uOdS"
+					target="_blank">video</a
+				> of me performing with some fellow PhD students at the holiday party. I'm also a beer connoisseur—if
+				you ever see me around, feel free to strike up a conversation about beer (or better yet, share
+				one!)
 			</p>
 		</section>
 		<section id="publications">
@@ -38,6 +58,10 @@
 		display: flex;
 		gap: 40px;
 		padding: 0px 10px;
+	}
+
+	p {
+		text-align: justify;
 	}
 
 	.column {

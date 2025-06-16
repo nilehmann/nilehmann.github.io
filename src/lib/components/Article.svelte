@@ -74,12 +74,4 @@
 	.article-actions {
 		float: right;
 	}
-
-	a {
-		color: var(--link-color);
-	}
-
-	a:hover {
-		text-decoration: underline;
-	}
 </style>
