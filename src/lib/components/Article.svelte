@@ -23,19 +23,19 @@
 	}
 </script>
 
-<div class="article-item">
+<div class="article-item" id={article.key}>
 	<div class="article-caret">
-		<a href={`#${article.key}`} onclickcapture={toggleAbstract}>
+		<span onclickcapture={toggleAbstract}>
 			<Icon icon="ic:baseline-arrow-forward-ios" inline font-size="0.8rem" />
-		</a>
+		</span>
 	</div>
 	<div class="article-actions">
 		[<a href="papers/{article.key}.pdf" target="_blank">pdf</a>,
 		<a href="papers/{article.key}.bib" target="_blank">bibtex</a>]
 	</div>
-	<a href={`#${article.key}`} onclickcapture={toggleAbstract} class="article-title">
+	<span onclickcapture={toggleAbstract} class="article-title">
 		{article.title}
-	</a>
+	</span>
 	{#if article.author}
 		<div class="article-authors">
 			{formatAuthors(article.author)}
@@ -62,10 +62,7 @@
 
 	.article-caret {
 		float: left;
-	}
-
-	.article-caret a {
-		color: var(--primary);
+		cursor: pointer;
 	}
 
 	.article-title {
@@ -74,9 +71,7 @@
 		font-family: 'Bree Serif';
 		font-size: 1.1rem;
 		color: var(--primary);
-	}
-	.article-title:hover {
-		text-decoration: none;
+		cursor: pointer;
 	}
 
 	.article-authors {
