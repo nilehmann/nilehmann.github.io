@@ -25,11 +25,11 @@
 				particularly interested in using these techniques to secure the low-level systems that power
 				critical infrastructure. Check out my tool
 				<a href="https://github.com/flux-rs/flux" target="_blank">Flux</a>, a refinement type
-				checker for Rust that lets specify a range of correctness properties and have them be
+				checker for Rust that lets you specify a range of correctness properties and have them be
 				verified at compile time.
 			</p>
 			<p>
-				Outside of research, I'm a decent musician. You can check my college band Modesto Medio in
+				Outside of research, I'm a decent musician. You can check my college band, Modesto Medio, in
 				<a
 					href="https://open.spotify.com/artist/4z8hrlYC3dtLNbLb8dLiUv?si=dXBh95WQRLWe1vJvmaOa2w"
 					target="_blank">Spotify</a

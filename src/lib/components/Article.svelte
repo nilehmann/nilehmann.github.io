@@ -5,15 +5,15 @@
 
 	export let article: IArticle;
 
-	// Local state for this publication's abstract
-	// let isExpanded = false;
-
-	// function toggleAbstract(): void {
-	// 	isExpanded = !isExpanded;
-	// }
-
 	function formatAuthors(authors: Author[]): string {
-		return authors.map((author) => `${author.given} ${author.family}`).join(', ');
+		return authors
+			.map((author) => {
+				if (!author.given || !author.family) {
+					throw new Error(`Author missing info`);
+				}
+				return `${author.given} ${author.family}`;
+			})
+			.join(', ');
 	}
 </script>
 
