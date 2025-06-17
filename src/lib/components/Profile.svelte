@@ -34,9 +34,17 @@
 		.container {
 			flex-direction: row;
 		}
+	}
 
+	@media (max-width: 480px) {
 		img {
-			width: 150px;
+			width: 180px;
+		}
+	}
+
+	@media (max-width: 450px) {
+		img {
+			width: 160px;
 		}
 	}
 
@@ -52,6 +60,8 @@
 	.name {
 		font-family: 'Bree Serif', sans-serif;
 		font-size: 170%;
+		line-height: 1;
+		margin-bottom: 0.3em;
 	}
 
 	a {
