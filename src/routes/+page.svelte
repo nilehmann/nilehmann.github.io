@@ -57,7 +57,7 @@
 		margin: auto;
 		display: flex;
 		gap: 40px;
-		padding: 0px 10px;
+		padding: 0px 20px;
 	}
 
 	p {

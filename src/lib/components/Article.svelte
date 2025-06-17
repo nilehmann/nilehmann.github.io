@@ -3,9 +3,12 @@
 	import type { Author } from '@citation-js/core';
 	import Icon from '@iconify/svelte';
 
-	export let article: IArticle;
+	let { article }: { article: IArticle } = $props();
 
-	let showAbstract = false;
+	let showAbstract = $state(false);
+	const caret = $derived(
+		showAbstract ? 'eva:arrow-ios-downward-fill' : 'eva:arrow-ios-forward-fill' // 'ic:baseline-arrow-forward-ios'
+	);
 
 	function toggleAbstract() {
 		showAbstract = !showAbstract;
@@ -24,29 +27,38 @@
 </script>
 
 <div class="article-item" id={article.key}>
-	<div class="article-caret">
-		<span onclickcapture={toggleAbstract}>
-			<Icon icon="ic:baseline-arrow-forward-ios" inline font-size="0.8rem" />
+	<div onclickcapture={toggleAbstract} style="cursor: pointer;">
+		<div class="article-caret">
+			<Icon icon={caret} inline />
+		</div>
+		<span class="article-title">
+			{article.title}
 		</span>
+		{#if article.author}
+			<div class="article-authors">
+				{formatAuthors(article.author)}
+			</div>
+		{/if}
+		<div class="article-venue">
+			In
+			{article.venue.publisher}
+			{article.venue.name}
+			(<span class="article-short-venue">{article.venue.shortName}</span>)
+			{year(article)}
+		</div>
 	</div>
 	<div class="article-actions">
-		[<a href="papers/{article.key}.pdf" target="_blank">pdf</a>,
-		<a href="papers/{article.key}.bib" target="_blank">bibtex</a>]
-	</div>
-	<span onclickcapture={toggleAbstract} class="article-title">
-		{article.title}
-	</span>
-	{#if article.author}
-		<div class="article-authors">
-			{formatAuthors(article.author)}
-		</div>
-	{/if}
-	<div class="article-venue">
-		In
-		{article.venue.publisher}
-		{article.venue.name}
-		(<span class="article-short-venue">{article.venue.shortName}</span>)
-		{year(article)}
+		<a href="papers/{article.key}.pdf" target="_blank">
+			<div class="action"><Icon icon="mdi:tray-download" inline /> PDF</div>
+		</a>
+		<a href="papers/{article.key}.bib" target="_blank">
+			<div class="action"><Icon icon="mdi:format-quote-close" inline /> BibTex</div>
+		</a>
+		{#if article.URL}
+			<a href={article.URL} target="_blank">
+				<div class="action"><Icon icon="mdi:external-link" inline /> External Link</div>
+			</a>
+		{/if}
 	</div>
 	{#if article.abstract && showAbstract}
 		<div class="details">
@@ -62,7 +74,6 @@
 
 	.article-caret {
 		float: left;
-		cursor: pointer;
 	}
 
 	.article-title {
@@ -87,8 +98,35 @@
 		font-weight: bold;
 	}
 
-	.article-actions {
+	/* .article-actions {
 		float: right;
+	} */
+	.article-actions {
+		/* float: right; */
+		margin-top: 0.5rem;
+		padding-left: 25px;
+	}
+
+	.article-actions .action {
+		display: inline-block;
+		border: solid 1px var(--blue-fg);
+		padding: 2px 8px;
+	}
+
+	.article-actions .action:hover {
+		background-color: var(--blue-fg);
+		color: white !important;
+	}
+
+	/* .article-actions .action {
+		display: inline-block;
+		color: var(--text-color);
+		background-color: var(--light-gray);
+		padding: 2px 8px;
+	} */
+
+	.article-actions .action:hover {
+		color: var(--blue-fg);
 	}
 
 	.details {

@@ -56,5 +56,6 @@
 
 	a:hover {
 		color: var(--link-color);
+		text-decoration: none;
 	}
 </style>

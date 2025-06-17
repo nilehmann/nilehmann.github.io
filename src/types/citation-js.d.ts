@@ -12,6 +12,7 @@ declare module '@citation-js/core' {
 		issue?: string;
 		abstract?: string;
 		issued?: { 'date-parts': number[][] };
+		URL?: string;
 		'container-title'?: string;
 	}
 
