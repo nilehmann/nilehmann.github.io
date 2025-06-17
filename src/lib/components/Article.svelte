@@ -11,6 +11,9 @@
 	);
 
 	function toggleAbstract() {
+		if (!article.abstract) {
+			return;
+		}
 		showAbstract = !showAbstract;
 	}
 
@@ -27,7 +30,7 @@
 </script>
 
 <div class="article-item" id={article.key}>
-	<div onclickcapture={toggleAbstract} style="cursor: pointer;">
+	<div onclickcapture={toggleAbstract} style={article.abstract ? 'cursor: pointer' : ''}>
 		<div class="article-caret">
 			<Icon icon={caret} inline />
 		</div>
@@ -61,7 +64,7 @@
 		{/if}
 	</div>
 	{#if article.abstract && showAbstract}
-		<div class="details">
+		<div class="details" onclickcapture={toggleAbstract} style="cursor: pointer;">
 			<p class="article-abstract"><strong>Abstract.</strong>{article.abstract}</p>
 		</div>
 	{/if}
@@ -82,7 +85,6 @@
 		font-family: 'Bree Serif';
 		font-size: 1.1rem;
 		color: var(--primary);
-		cursor: pointer;
 	}
 
 	.article-authors {
@@ -126,6 +128,7 @@
 
 	.article-abstract {
 		text-align: justify;
+		hyphens: auto;
 		padding: 0;
 		margin: 0;
 	}

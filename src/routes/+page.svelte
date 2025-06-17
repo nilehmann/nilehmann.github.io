@@ -62,6 +62,7 @@
 
 	p {
 		text-align: justify;
+		hyphens: auto;
 	}
 
 	.column {
