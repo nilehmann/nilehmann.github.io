@@ -57,7 +57,7 @@
 		margin: auto;
 		display: flex;
 		gap: 40px;
-		padding: 0px 20px;
+		padding: 0px 15px;
 	}
 
 	p {
@@ -69,7 +69,7 @@
 		box-sizing: border-box;
 	}
 
-	@media (max-width: 800px) {
+	@media (max-width: 900px) {
 		.container {
 			flex-direction: column;
 		}

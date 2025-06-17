@@ -26,26 +26,15 @@
 		gap: 20px;
 	}
 
-	img {
-		width: 210px;
-	}
-
-	@media (max-width: 800px) {
+	@media (max-width: 900px) {
 		.container {
 			flex-direction: row;
 		}
 	}
 
-	@media (max-width: 480px) {
-		img {
-			width: 180px;
-		}
-	}
-
-	@media (max-width: 450px) {
-		img {
-			width: 160px;
-		}
+	img {
+		width: 210px;
+		max-width: 35vw;
 	}
 
 	.info {
@@ -60,8 +49,8 @@
 	.name {
 		font-family: 'Bree Serif', sans-serif;
 		font-size: 170%;
-		line-height: 1;
-		margin-bottom: 0.3em;
+		line-height: 0.6;
+		margin-bottom: 0.4em;
 	}
 
 	a {

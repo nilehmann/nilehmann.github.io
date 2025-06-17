@@ -98,11 +98,7 @@
 		font-weight: bold;
 	}
 
-	/* .article-actions {
-		float: right;
-	} */
 	.article-actions {
-		/* float: right; */
 		margin-top: 0.5rem;
 		padding-left: 25px;
 	}
@@ -117,13 +113,6 @@
 		background-color: var(--blue-fg);
 		color: white !important;
 	}
-
-	/* .article-actions .action {
-		display: inline-block;
-		color: var(--text-color);
-		background-color: var(--light-gray);
-		padding: 2px 8px;
-	} */
 
 	.article-actions .action:hover {
 		color: var(--blue-fg);
