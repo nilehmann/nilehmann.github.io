@@ -30,10 +30,10 @@
 		padding: 1rem;
 	}
 
-	nav a {
+	/* nav a {
 		margin: 0 1rem;
 		color: white;
 		text-decoration: none;
 		font-weight: bold;
-	}
+	} */
 </style>

@@ -26,9 +26,17 @@
 		gap: 20px;
 	}
 
+	img {
+		width: 210px;
+	}
+
 	@media (max-width: 800px) {
 		.container {
 			flex-direction: row;
+		}
+
+		img {
+			width: 150px;
 		}
 	}
 
@@ -44,10 +52,6 @@
 	.name {
 		font-family: 'Bree Serif', sans-serif;
 		font-size: 170%;
-	}
-
-	img {
-		width: 210px;
 	}
 
 	a {
