@@ -74,7 +74,7 @@
 	<div class="article-actions">
 		{#if article.abstract}
 			<button class="action" onclickcapture={toggleAbstract}>
-				<Icon icon="mdi:text-long" inline /> Abstract
+				<Icon icon="mdi:text" inline /> Abstract
 			</button>
 		{/if}
 		<a href="papers/{article.key}.pdf" target="_blank">
