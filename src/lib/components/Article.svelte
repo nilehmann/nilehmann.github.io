@@ -6,9 +6,6 @@
 	let { article }: { article: IArticle } = $props();
 
 	let showAbstract = $state(false);
-	const caret = $derived(
-		showAbstract ? 'eva:arrow-ios-downward-fill' : 'eva:arrow-ios-forward-fill' // 'ic:baseline-arrow-forward-ios'
-	);
 
 	function toggleAbstract() {
 		if (!article.abstract) {
@@ -30,9 +27,9 @@
 </script>
 
 <div class="article-item" id={article.key}>
-	<div onclickcapture={toggleAbstract} style={article.abstract ? 'cursor: pointer' : ''}>
+	<div>
 		<div class="article-caret">
-			<Icon icon={caret} inline />
+			<Icon icon="eva:arrow-ios-forward-fill" inline />
 		</div>
 		<span class="article-title">
 			{article.title}
@@ -51,6 +48,11 @@
 		</div>
 	</div>
 	<div class="article-actions">
+		{#if article.abstract}
+			<button class="action" onclickcapture={toggleAbstract}>
+				<Icon icon="mdi:text-long" inline /> Abstract
+			</button>
+		{/if}
 		<a href="papers/{article.key}.pdf" target="_blank">
 			<div class="action"><Icon icon="mdi:tray-download" inline /> PDF</div>
 		</a>
@@ -59,12 +61,12 @@
 		</a>
 		{#if article.URL}
 			<a href={article.URL} target="_blank">
-				<div class="action"><Icon icon="mdi:external-link" inline /> External Link</div>
+				<div class="action"><Icon icon="mdi:external-link" inline /> URL</div>
 			</a>
 		{/if}
 	</div>
 	{#if article.abstract && showAbstract}
-		<div class="details" onclickcapture={toggleAbstract} style="cursor: pointer;">
+		<div class="details">
 			<p class="article-abstract"><strong>Abstract.</strong>{article.abstract}</p>
 		</div>
 	{/if}
@@ -106,9 +108,11 @@
 	}
 
 	.article-actions .action {
+		cursor: pointer;
 		display: inline-block;
 		border: solid 1px var(--blue-fg);
-		padding: 2px 8px;
+		padding: 0px 8px;
+		color: var(--blue-fg);
 	}
 
 	.article-actions .action:hover {

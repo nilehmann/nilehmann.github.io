@@ -11,6 +11,7 @@ declare module '@citation-js/core' {
 		author?: Author[];
 		issue?: string;
 		abstract?: string;
+		DOI?: string;
 		issued?: { 'date-parts': number[][] };
 		URL?: string;
 		'container-title'?: string;
