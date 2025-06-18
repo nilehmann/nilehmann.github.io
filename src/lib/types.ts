@@ -9,6 +9,7 @@ export interface Venue {
 export interface IArticle extends CitationItem {
 	key: string;
 	venue: Venue;
+	bibtex: string;
 }
 
 export function findVenue(data: CitationItem): Venue | undefined {

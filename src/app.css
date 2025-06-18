@@ -3,7 +3,7 @@
 		--background-color: rgb(30, 30, 30);
 		--text-color: rgb(200, 195, 188);
 		--blue-fg: rgb(107, 172, 209);
-		--light-gray: rgb(32, 35, 37);
+		--light-gray: rgb(42, 45, 47);
 	}
 }
 @media (prefers-color-scheme: light) {

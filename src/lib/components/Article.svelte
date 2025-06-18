@@ -2,6 +2,7 @@
 	import { year, type IArticle } from '$lib/types';
 	import type { Author } from '@citation-js/core';
 	import Icon from '@iconify/svelte';
+	import Modal from './Modal.svelte';
 
 	let { article }: { article: IArticle } = $props();
 
@@ -24,9 +25,32 @@
 			})
 			.join(', ');
 	}
+
+	let bibtex: HTMLTextAreaElement | undefined;
+
+	function copyBibTexToClipboard() {
+		bibtex?.select();
+		navigator.clipboard.writeText(article.bibtex);
+	}
+
+	let showModal = $state(false);
 </script>
 
 <div class="article-item" id={article.key}>
+	<Modal bind:showModal title="Export Citation">
+		<div class="bibtex-container">
+			<textarea readonly bind:this={bibtex}>{article.bibtex}</textarea>
+		</div>
+		<div class="citation-actions">
+			<a href={`papers/${article.key}.bib`} target="_blank" class="citation-action">
+				<Icon icon="mdi:tray-download" />
+			</a>
+			<button class="citation-action" onclick={copyBibTexToClipboard}>
+				<Icon icon="mdi:content-copy" />
+			</button>
+		</div>
+	</Modal>
+
 	<div>
 		<div class="article-caret">
 			<Icon icon="eva:arrow-ios-forward-fill" inline />
@@ -56,9 +80,9 @@
 		<a href="papers/{article.key}.pdf" target="_blank">
 			<div class="action"><Icon icon="mdi:tray-download" inline /> PDF</div>
 		</a>
-		<a href="papers/{article.key}.bib" target="_blank">
-			<div class="action"><Icon icon="mdi:format-quote-close" inline /> BibTex</div>
-		</a>
+		<button class="action" onclick={() => (showModal = true)}>
+			<Icon icon="mdi:format-quote-close" inline /> Cite
+		</button>
 		{#if article.URL}
 			<a href={article.URL} target="_blank">
 				<div class="action"><Icon icon="mdi:external-link" inline /> URL</div>
@@ -73,6 +97,38 @@
 </div>
 
 <style>
+	.bibtex-container textarea {
+		width: 100%;
+		box-sizing: border-box;
+		height: 300px;
+		border: 0px;
+		outline: none;
+		background-color: var(--light-gray);
+		padding: 0.65rem 0.65rem 0.65rem 0.9rem;
+		color: var(--text-color);
+		overscroll-behavior: contain;
+		margin: 10px 0px;
+		resize: vertical;
+	}
+
+	.citation-actions {
+		float: right;
+	}
+
+	.citation-action:first-child {
+		margin-right: 0.5rem;
+	}
+
+	.citation-action {
+		color: var(--text-color);
+		font-size: 1.4rem;
+		cursor: pointer;
+	}
+
+	.citation-action:hover {
+		color: var(--blue-fg);
+	}
+
 	.article-item {
 		margin-bottom: 10px;
 	}

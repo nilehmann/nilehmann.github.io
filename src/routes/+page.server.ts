@@ -21,12 +21,13 @@ export async function load() {
 		if (!fs.existsSync(pdfPath)) {
 			throw new Error(`File not found: ${pdfPath}`);
 		}
-
-		const cite = new Cite(fs.readFileSync(bibPath, 'utf-8'));
+		const bibtex = fs.readFileSync(bibPath, 'utf-8');
+		const cite = new Cite(bibtex);
 		const data = cite.get()[0];
 		articles.push({
 			venue: findVenue(data),
 			key,
+			bibtex,
 			...data
 		});
 	}
