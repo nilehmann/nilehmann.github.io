@@ -101,7 +101,7 @@
 		width: 100%;
 		box-sizing: border-box;
 		height: 300px;
-		border: 0px;
+		border: 1px solid lightgray;
 		outline: none;
 		background-color: var(--light-gray);
 		padding: 0.65rem 0.65rem 0.65rem 0.9rem;
