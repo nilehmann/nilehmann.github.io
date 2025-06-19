@@ -41,6 +41,7 @@
 		display: inline-block;
 		color: var(--text-color);
 		line-height: 1;
+		margin-bottom: 1rem;
 	}
 
 	.close-button {
@@ -55,17 +56,21 @@
 		border: none;
 		padding: 0;
 		background-color: var(--background-color);
-		margin-top: 10vh;
+		margin-top: 12vh;
 	}
+
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.5);
 	}
+
 	dialog > div {
-		padding: 1rem 2rem 2.8rem;
+		padding: 2rem 2.4rem 3.4rem;
 	}
+
 	dialog[open] {
 		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
+
 	@keyframes zoom {
 		from {
 			transform: scale(0.95);
@@ -74,9 +79,11 @@
 			transform: scale(1);
 		}
 	}
+
 	dialog[open]::backdrop {
 		animation: fade 0.2s ease-out;
 	}
+
 	@keyframes fade {
 		from {
 			opacity: 0;
