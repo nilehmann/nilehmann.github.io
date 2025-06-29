@@ -42,10 +42,15 @@
 			<textarea readonly bind:this={bibtex}>{article.bibtex}</textarea>
 		</div>
 		<div class="citation-actions">
-			<a href={`papers/${article.key}.bib`} target="_blank" class="citation-action">
+			<a
+				href={`papers/${article.key}.bib`}
+				target="_blank"
+				class="citation-action"
+				title="Download BibTex"
+			>
 				<Icon icon="mdi:tray-download" />
 			</a>
-			<button class="citation-action" onclick={copyBibTexToClipboard}>
+			<button class="citation-action" onclick={copyBibTexToClipboard} title="Copy to clipboard">
 				<Icon icon="mdi:content-copy" />
 			</button>
 		</div>
@@ -73,18 +78,22 @@
 	</div>
 	<div class="article-actions">
 		{#if article.abstract}
-			<button class="action" onclickcapture={toggleAbstract}>
+			<button
+				class="action"
+				onclickcapture={toggleAbstract}
+				title={(showAbstract ? 'Hide' : 'Show') + ' Abstract'}
+			>
 				<Icon icon="mdi:text" inline /> Abstract
 			</button>
 		{/if}
-		<a href="papers/{article.key}.pdf" target="_blank">
+		<a href="papers/{article.key}.pdf" target="_blank" download title="Download PDF">
 			<div class="action"><Icon icon="mdi:tray-download" inline /> PDF</div>
 		</a>
-		<button class="action" onclick={() => (showModal = true)}>
+		<button class="action" onclick={() => (showModal = true)} title="Export Citation">
 			<Icon icon="mdi:format-quote-close" inline /> Cite
 		</button>
 		{#if article.URL}
-			<a href={article.URL} target="_blank">
+			<a href={article.URL} target="_blank" title="External Link">
 				<div class="action"><Icon icon="mdi:external-link" inline /> URL</div>
 			</a>
 		{/if}
@@ -109,6 +118,7 @@
 		overscroll-behavior: contain;
 		margin: 10px 0px;
 		resize: vertical;
+		max-height: 60vh;
 	}
 
 	.citation-actions {

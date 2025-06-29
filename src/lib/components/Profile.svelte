@@ -10,10 +10,14 @@
 		<div class="name">Nico Lehmann</div>
 		<div class="position">PhD Student at UC San Diego</div>
 		<div><Icon icon="mdi:email" inline /> nlehmann at ucsd.edu</div>
-		<a href="https://github.com/nilehmann">
+		<a href="https://github.com/nilehmann" target="_blank" title="GitHub">
 			<Icon icon="mdi:github" inline /> nilehmann
 		</a>
-		<a href="https://scholar.google.com/citations?user=3iBn2y8AAAAJ&hl=en">
+		<a
+			href="https://scholar.google.com/citations?user=3iBn2y8AAAAJ&hl=en"
+			target="_blank"
+			title="Google Scholar"
+		>
 			<Icon icon="mdi:graduation-cap" inline font-size="1.1rem" /> Google Scholar
 		</a>
 	</div>

@@ -19,11 +19,10 @@
 			<h2>About Me</h2>
 			<p>
 				I'm a final year PhD student at the University of California, San Diego, advised by Ranjit
-				Jhala. I'm interested in <emph>programming languages</emph> and
-				<emph>program verification</emph>. My goal is to make formal verification part of the
-				day-to-day development process by integrating formal methods into programming languages. I'm
-				particularly interested in using these techniques to secure the low-level systems that power
-				critical infrastructure. Check out my tool
+				Jhala. I'm interested in programming languages and program verification. My goal is to make
+				formal verification part of the day-to-day development process by integrating formal methods
+				into programming languages. I'm particularly interested in using these techniques to secure
+				the low-level systems that power critical infrastructure. Check out my tool
 				<a href="https://github.com/flux-rs/flux" target="_blank">Flux</a>, a refinement type
 				checker for Rust that lets you specify a range of correctness properties and have them be
 				verified at compile time.
