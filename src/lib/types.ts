@@ -29,20 +29,9 @@ export function findVenue(data: CitationItem): Venue | undefined {
 }
 
 const VENUES: { [key: string]: Venue } = {
-	POPL: {
-		publisher: 'ACM SIGPLAN',
-		name: 'Symposium on Principles of Programming Languages',
-		shortName: 'POPL'
-	},
-	PLDI: {
-		publisher: 'ACM SIGPLAN',
-		name: 'Conference on Programming Language Design and Implementation',
-		shortName: 'PLDI'
-	},
-	OSDI: {
-		publisher: 'USENIX',
-		name: 'Symposium on Operating Systems Design and Implementation',
-		shortName: 'OSDI'
+	AMW: {
+		name: 'Alberto Mendelzon Workshop on Foundations of Data Management',
+		shortName: 'AMW'
 	},
 	CoqPL: {
 		name: 'International Workshop on Coq for Programming Languages',
@@ -52,12 +41,33 @@ const VENUES: { [key: string]: Venue } = {
 		name: 'International Olympiad in Informatics',
 		shortName: 'IOI'
 	},
-	AMW: {
-		name: 'Alberto Mendelzon Workshop on Foundations of Data Management',
-		shortName: 'AMW'
+	OSDI: {
+		publisher: 'USENIX',
+		name: 'Symposium on Operating Systems Design and Implementation',
+		shortName: 'OSDI'
+	},
+	PLDI: {
+		publisher: 'ACM SIGPLAN',
+		name: 'Conference on Programming Language Design and Implementation',
+		shortName: 'PLDI'
+	},
+	POPL: {
+		publisher: 'ACM SIGPLAN',
+		name: 'Symposium on Principles of Programming Languages',
+		shortName: 'POPL'
+	},
+	SOSP: {
+		publisher: 'ACM SIGOPS',
+		name: 'Symposium on Operating Systems Principles',
+		shortName: 'SOSP'
 	}
 };
 
 export function year(article: IArticle): number {
-	return article.issued?.['date-parts'][0][0] || 0;
+	return dateParts(article)[0];
+}
+
+export function dateParts(article: IArticle): [number, number] {
+	const parts = article.issued?.['date-parts'][0] || [];
+	return [parts[0] || 0, parts[1] || 0];
 }

@@ -1,12 +1,16 @@
 <script lang="ts">
 	import Article from '$lib/components/Article.svelte';
 	import Profile from '$lib/components/Profile.svelte';
-	import { year, type IArticle } from '$lib/types.js';
+	import { dateParts, type IArticle } from '$lib/types.js';
 
 	export let data: { articles: IArticle[] };
 	const { articles } = data;
 
-	const sortedArticles = articles.slice().sort((a, b) => year(b) - year(a));
+	const sortedArticles = articles.slice().sort((a, b) => {
+		const [yearA, monthA] = dateParts(a);
+		const [yearB, monthB] = dateParts(b);
+		return yearB - yearA || monthB - monthA;
+	});
 </script>
 
 <div class="container">
