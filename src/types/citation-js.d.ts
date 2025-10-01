@@ -15,6 +15,7 @@ declare module '@citation-js/core' {
 		issued?: { 'date-parts': number[][] };
 		URL?: string;
 		'container-title'?: string;
+		'collection-title'?: string;
 	}
 
 	export class Cite {

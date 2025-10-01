@@ -1,4 +1,5 @@
 import type { CitationItem } from '@citation-js/core';
+import assert from 'assert';
 
 export interface Venue {
 	publisher?: string;
@@ -12,20 +13,25 @@ export interface IArticle extends CitationItem {
 	bibtex: string;
 }
 
-export function findVenue(data: CitationItem): Venue | undefined {
+export function findVenue(data: CitationItem): Venue {
 	if (data.issue && data.issue in VENUES) {
 		return VENUES[data.issue];
 	}
 	for (const key in VENUES) {
-		const text = data['container-title'];
-		if (!text) {
-			continue;
-		}
 		const regex = new RegExp(`\\b${key}\\b`); // escape carefully if user input
-		if (regex.test(text)) {
-			return VENUES[key];
+		const findIn = ['container-title', 'collection-title'] as const;
+		for (const k of findIn) {
+			const text = data[k];
+			if (!text) {
+				continue;
+			}
+			if (regex.test(text)) {
+				return VENUES[key];
+			}
 		}
 	}
+	console.log(data);
+	assert(false, `No venue found for "${data.title}"`);
 }
 
 const VENUES: { [key: string]: Venue } = {
