@@ -8,8 +8,8 @@
 	</div>
 	<div class="info">
 		<div class="name">Nico Lehmann</div>
-		<div class="position">PhD Student at UC San Diego</div>
-		<div><Icon icon="mdi:email" inline /> nlehmann at ucsd.edu</div>
+		<div class="position">Assistant Professor at University of Chile</div>
+		<div><Icon icon="mdi:email" inline /> nlehmann at dcc.uchile.cl</div>
 		<a href="https://github.com/nilehmann" target="_blank" title="GitHub">
 			<Icon icon="mdi:github" inline /> nilehmann
 		</a>
